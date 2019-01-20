@@ -6,7 +6,7 @@ before_install:
 install:
   - sudo pip install -r requirements.txt
 script:
-  - autosite --auto
+  - python3 autosite.py --auto
 branches:
   only:
     - master
