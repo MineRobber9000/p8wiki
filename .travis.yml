@@ -4,9 +4,14 @@ python:
 before_install:
   - echo $(pwd)
 install:
-  - sudo pip install -r requirements.txt
+  - sudo pip3 install -r requirements.txt
 script:
   - python3 autosite.py --auto
+addons:
+  apt:
+    packages:
+      - python3
+      - python3-pip
 branches:
   only:
     - master
