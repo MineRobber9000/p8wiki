@@ -10,6 +10,8 @@ def repl(m):
 	print(" - Function name {}".format(function_name))
 	function_page = lonk["substitutions"][function_name] if function_name in lonk["substitutions"] else function_name
 	print(" - Function page {}.html".format(function_page))
+	if not os.path.exists("in/{}.md".format(function_page)):
+		return "<code>{}()</code>".format(function_name) # allow proactive lonking by refusing to link to nonexistant pages
 	return "<a href='./{}.html'><code>{}()</code></a>".format(function_page,function_name)
 
 template = re.sub(re.escape("[[<code>")+"([^()]+)"+re.escape("()</code>]]"),repl,template)
